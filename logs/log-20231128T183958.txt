@@ -1,0 +1,40 @@
+18:40:04 INFO  tests.TestBase - login  is started 
+18:40:04 INFO  manager.WdListener - Element with locator ----> By.xpath: //*[.='Sign Out'] is found
+18:40:14 INFO  manager.WdListener - Start searching element By.xpath: //*[.='Sign Out']
+18:40:14 INFO  manager.WdListener - Element with locator ----> By.xpath: //*[.='LOGIN'] is found
+18:40:15 INFO  manager.WdListener - Start searching element By.xpath: //*[.='LOGIN']
+18:40:15 INFO  manager.WdListener - Element with locator ----> By.name: email is found
+18:40:15 INFO  manager.WdListener - Start searching element By.name: email
+18:40:15 INFO  manager.WdListener - Element with locator ----> By.name: password is found
+18:40:15 INFO  manager.WdListener - Start searching element By.name: password
+18:40:16 INFO  manager.WdListener - Element with locator ----> By.xpath: //button[1] is found
+18:40:16 INFO  manager.WdListener - Start searching element By.xpath: //button[1]
+18:40:16 INFO  manager.WdListener - Element with locator ----> By.xpath: //button is found
+18:40:17 INFO  manager.WdListener - Start searching element By.xpath: //button
+18:40:17 INFO  tests.TestBase - ----------------------------------------------------------------
+18:40:17 INFO  tests.TestBase - loginNegativWrongEmailTestBase  is started 
+18:40:17 INFO  manager.WdListener - Element with locator ----> By.xpath: //*[.='Sign Out'] is found
+18:40:17 INFO  manager.WdListener - Start searching element By.xpath: //*[.='Sign Out']
+18:40:17 INFO  manager.WdListener - Element with locator ----> By.xpath: //*[.='Sign Out'] is found
+18:40:17 INFO  manager.WdListener - Start searching element By.xpath: //*[.='Sign Out']
+18:40:17 INFO  manager.WdListener - Element with locator ----> By.xpath: //*[.='LOGIN'] is found
+18:40:17 INFO  manager.WdListener - Start searching element By.xpath: //*[.='LOGIN']
+18:40:17 INFO  manager.WdListener - Element with locator ----> By.name: email is found
+18:40:17 INFO  manager.WdListener - Start searching element By.name: email
+18:40:17 INFO  manager.WdListener - Element with locator ----> By.name: password is found
+18:40:18 INFO  manager.WdListener - Start searching element By.name: password
+18:40:18 INFO  manager.WdListener - Element with locator ----> By.xpath: //button[1] is found
+18:40:18 INFO  manager.WdListener - Start searching element By.xpath: //button[1]
+18:40:18 INFO  tests.TestBase - ----------------------------------------------------------------
+18:40:18 INFO  tests.TestBase - loginNegativWrongPasswordTestBase  is started 
+18:40:18 INFO  manager.WdListener - Element with locator ----> By.xpath: //*[.='Sign Out'] is found
+18:40:28 INFO  manager.WdListener - Start searching element By.xpath: //*[.='Sign Out']
+18:40:28 INFO  manager.WdListener - Element with locator ----> By.xpath: //*[.='LOGIN'] is found
+18:40:28 INFO  manager.WdListener - Start searching element By.xpath: //*[.='LOGIN']
+18:40:28 INFO  manager.WdListener - Element with locator ----> By.name: email is found
+18:40:28 INFO  manager.WdListener - Start searching element By.name: email
+18:40:29 INFO  manager.WdListener - Element with locator ----> By.name: password is found
+18:40:29 INFO  manager.WdListener - Start searching element By.name: password
+18:40:29 INFO  manager.WdListener - Element with locator ----> By.xpath: //button[1] is found
+18:40:29 INFO  manager.WdListener - Start searching element By.xpath: //button[1]
+18:40:29 INFO  tests.TestBase - ----------------------------------------------------------------

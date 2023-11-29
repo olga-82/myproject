@@ -1,0 +1,29 @@
+20:10:29 INFO  tests.TestBase - login  is started 
+20:10:29 INFO  manager.WdListener - Element with locator ----> By.xpath: //*[.='Sign Out'] is found
+20:10:39 INFO  manager.WdListener - Start searching element By.xpath: //*[.='Sign Out']
+20:10:39 INFO  manager.WdListener - Element with locator ----> By.xpath: //*[.='LOGIN'] is found
+20:10:39 INFO  manager.WdListener - Start searching element By.xpath: //*[.='LOGIN']
+20:10:40 INFO  manager.WdListener - Element with locator ----> By.name: email is found
+20:10:40 INFO  manager.WdListener - Start searching element By.name: email
+20:10:40 INFO  manager.WdListener - Element with locator ----> By.name: rd is found
+20:10:50 INFO  manager.WdListener - Something went wrong!
+20:10:50 INFO  manager.WdListener - no such element: Unable to locate element: {"method":"css selector","selector":"*[name='rd']"}
+  (Session info: chrome=119.0.6045.159)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'MBP-olga', ip: '2a00:a041:e080:6de0:7c54:784a:ff8d:6eea%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.1.1', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.159, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: /var/folders/0x/rhjqjp852s1...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56982}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 61b4929cd6eb1f77db184309f276e09e
+*** Element info: {Using=name, value=rd}
+20:10:50 INFO  manager.WdListener - no such element: Unable to locate element: {"method":"css selector","selector":"*[name='rd']"}
+  (Session info: chrome=119.0.6045.159)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'MBP-olga', ip: '2a00:a041:e080:6de0:7c54:784a:ff8d:6eea%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.1.1', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.159, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: /var/folders/0x/rhjqjp852s1...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56982}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 61b4929cd6eb1f77db184309f276e09e
+*** Element info: {Using=name, value=rd}
+20:10:51 INFO  manager.WdListener - This is a link to screenshot with error ----->src/test/screenshots/screen-650.png
+20:10:51 INFO  tests.TestBase - ----------------------------------------------------------------

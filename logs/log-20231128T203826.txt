@@ -1,0 +1,16 @@
+20:38:33 INFO  tests.TestBase - login  is started 
+20:38:33 INFO  manager.WdListener - Element with locator ----> By.xpath: //*[.='Sign Out'] is found
+20:38:44 INFO  manager.WdListener - Start searching element By.xpath: //*[.='Sign Out']
+20:38:44 INFO  manager.TestNgListeners - Test login  started
+20:38:44 INFO  manager.WdListener - Element with locator ----> By.xpath: //*[.='LOGIN'] is found
+20:38:44 INFO  manager.WdListener - Start searching element By.xpath: //*[.='LOGIN']
+20:38:44 INFO  manager.WdListener - Element with locator ----> By.name: email is found
+20:38:44 INFO  manager.WdListener - Start searching element By.name: email
+20:38:44 INFO  manager.WdListener - Element with locator ----> By.name: password is found
+20:38:44 INFO  manager.WdListener - Start searching element By.name: password
+20:38:45 INFO  manager.WdListener - Element with locator ----> By.xpath: //button[1] is found
+20:38:45 INFO  manager.WdListener - Start searching element By.xpath: //button[1]
+20:38:45 INFO  manager.WdListener - Element with locator ----> By.xpath: //button is found
+20:38:46 INFO  manager.WdListener - Start searching element By.xpath: //button
+20:38:46 INFO  manager.TestNgListeners - Test login  successful
+20:38:46 INFO  tests.TestBase - ----------------------------------------------------------------
