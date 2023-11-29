@@ -1,10 +1,14 @@
 package tests;
 
+import manager.TestNgListeners;
+import model.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+@Listeners(TestNgListeners.class)
 
 public class LoginTest extends TestBase {
 
@@ -19,12 +23,13 @@ public class LoginTest extends TestBase {
 
     @Test
     public void login() {
-        app.getUser().openLoginForm();
-        app.getUser().fillLoginForm("cherry@gmail.com", "Ch12345$");
-        app.getUser().submitLogin();
-      //  app.getUser().pause(5000);
-       Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")), "Login Pass");;
-        app.getUser().logout();
+        User user = User.builder()
+                .email("cherry@gmail.com")
+                .password("Ch12345$")
+                .build();
+       app.getUser().Login(user);
+        Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")), "Login Pass");
+        ;
 
     }
 //        // open login form
@@ -76,20 +81,28 @@ public class LoginTest extends TestBase {
 
     @Test
     public void loginNegativWrongPasswordTestBase() {
-
-        app.getUser().openLoginForm();
-        app.getUser().fillLoginForm("cherry@gmail.com", "Ch12345");
-        app.getUser().submitLogin();
-       // Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//*[.='LOGIN']")));
-
+        User user = User.builder()
+                .email("cherry@gmail.com")
+                .password("Ch12345")
+                .build();
+        app.getUser().Login(user);
+        Assert.assertTrue(app.getUser().isWrongFormatMessage());
+        Assert.assertTrue(app.getUser().isAllertPresent());
     }
 
     @Test
     public void loginNegativWrongEmailTestBase() {
-        app.getUser().openLoginForm();
-        app.getUser().fillLoginForm("cherrygmail.com", "Ch12345");
-        app.getUser().submitLogin();
-       // Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//*[.='LOGIN']")));
+//
+//        app.getUser().openLoginForm();
+//        app.getUser().fillLoginForm("cherrygmail.com", "Ch12345$");
+//        app.getUser().submitLogin();
+        User user = User.builder()
+                .email("cherrygmail.com")
+                .password("Ch12345$")
+                .build();
+        app.getUser().Login(user);
+       Assert.assertTrue(app.getUser().isWrongFormatMessage());
+       Assert.assertTrue(app.getUser().isAllertPresent());
 
     }
 }

@@ -54,14 +54,11 @@ public class RegistrationTest extends TestBase {
 @Test
 public void registrationPositive()  {
     int i = (int) (System.currentTimeMillis() / 1000) % 3600;
-        User user =new User()
-                .withEmail("cherry" + i + "@gmail.com")
-                .withPassword("Ch12345$");
-
-
-    app.getUser(). openLoginForm();
-    app.getUser().fillLoginForm(user);
-    app.getUser(). submitRegistration();
+        User user =User.builder()
+                .email("cherry" + i + "@gmail.com")
+                .password("Ch12345$")
+                .build();
+    app.getUser().Registration(user);
     app.getUser().pause(5000);
     Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
 }
@@ -74,15 +71,32 @@ public void registrationPositive()  {
         app.getUser(). openLoginForm();
         app.getUser().fillLoginForm(email, password);
         app.getUser(). submitRegistration();
+        Assert.assertTrue(app.getUser().isWrongFormatMessageRegistr());
+        Assert.assertTrue(app.getUser().isAllertPresent());
     }
     @Test
     public void registrationNegativePassword() {
         int i = (int) (System.currentTimeMillis() / 1000) % 3600;
-        String email = "cherry" + i + "@gmail.com";
-        String password = "Ch12345";
-        app.getUser(). openLoginForm();
-        app.getUser(). fillLoginForm(email, password);
-        app.getUser().submitRegistration();
+        User user =User.builder()
+                .email("cherry" + i + "@gmail.com")
+                .password(" ")
+                .build();
+        app.getUser().Registration(user);
+        Assert.assertTrue(app.getUser().isWrongFormatMessageRegistr());
+        Assert.assertTrue(app.getUser().isAllertPresent());
+
+    }
+
+    @Test
+    public void registrationNegativeEmail(){
+        int i = (int) (System.currentTimeMillis() / 1000) % 3600;
+        User user =User.builder()
+                .email("cherry" + i + "gmail.com")
+                .password("Ch12345$")
+                .build();
+        app.getUser().Registration(user);
+        Assert.assertTrue(app.getUser().isWrongFormatMessageRegistr());
+        Assert.assertTrue(app.getUser().isAllertPresent());
 
     }
 
