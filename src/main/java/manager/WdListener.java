@@ -11,6 +11,7 @@ public class WdListener extends AbstractWebDriverEventListener {
 
     Logger logger = LoggerFactory.getLogger(WdListener.class);
 
+
     @Override
     public void afterFindBy(By by, WebElement element, WebDriver driver) {
         super.afterFindBy(by, element, driver);

@@ -13,6 +13,9 @@ public class HelperBase {
     public HelperBase(WebDriver wd) {
         this.wd = wd;
     }
+    public void navigateToMainPage() {
+        wd.navigate().to("https://telranedu.web.app/home");
+    }
 
     public void click(By locator) {
         wd.findElement(locator).click();

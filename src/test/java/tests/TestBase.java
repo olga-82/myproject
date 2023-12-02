@@ -14,6 +14,8 @@ public class TestBase {
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
    static ApplicationManager app = new ApplicationManager();
+   boolean flagNeedLogout = false;
+   boolean flagReturnToMainPage=false;
 //    WebDriver wd;
 @BeforeSuite
     public void setUp() {
@@ -25,7 +27,7 @@ public class TestBase {
     @AfterSuite
 
     public void stop() {
-       app.tearDown();
+     //  app.tearDown();
 
     }
     @BeforeMethod
