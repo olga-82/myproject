@@ -1,17 +1,17 @@
 package tests;
 
+import manager.ProviderData;
 import manager.TestNgListeners;
 import model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
 @Listeners(TestNgListeners.class)
 public class RegistrationTest extends TestBase {
-    @BeforeMethod
+
+    @BeforeMethod(alwaysRun = true)
     public void preconditions() {
         if (flagNeedLogout) {
             app.getUser().logout();
@@ -50,38 +50,39 @@ public class RegistrationTest extends TestBase {
 //        pause(5000);
 //        Assert.assertTrue(isElementPresent(By.xpath("//button")));
 //    }
-@Test
-public void registrationPositive()  {
-    int i = (int) (System.currentTimeMillis() / 1000) % 3600;
-        User user =User.builder()
-                .email("perry" + i + "@gmail.com")
-                .password("Ch12345$")
-                .build();
+@Test(groups = {"smoke", "positive", "regress"},dataProvider="userDtoCSVregPositiv",
+        dataProviderClass = ProviderData.class)
+public void registrationPositive(User user)  {
+//    int i = (int) (System.currentTimeMillis() / 1000) % 3600;
+//        User user =User.builder()
+//                .email("perry" + i + "@gmail.com")
+//                .password("Ch12345$")
+//                .build();
     app.getUser().Registration(user);
     app.getUser().pause(2000);
     flagNeedLogout=true;
     Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
 }
 
-    @Test
-    public void registrationNegativePassword()  {
-        int i = (int) (System.currentTimeMillis() / 1000) % 3600;
-        String email = "cherry" + i + "gmail.com";
-        String password = "Ch12345";
+    @Test(groups = {"regress","negative"},dataProvider="userDTO_CSVregNegativPassword",dataProviderClass = ProviderData.class)
+    public void registrationNegativePassword(User user)  {
+//        int i = (int) (System.currentTimeMillis() / 1000) % 3600;
+//        String email = "cherry" + i + "gmail.com";
+//        String password = "Ch12345";
         app.getUser(). openLoginForm();
-        app.getUser().fillLoginForm(email, password);
+        app.getUser().fillLoginForm(user);
         app.getUser(). submitRegistration();
         flagReturnToMainPage=true;
         Assert.assertTrue(app.getUser().isWrongFormatMessageRegistr());
         Assert.assertTrue(app.getUser().isAllertPresent());
     }
-    @Test
-    public void registrationNegativeEmptyPassword() {
-        int i = (int) (System.currentTimeMillis() / 1000) % 3600;
-        User user =User.builder()
-                .email("cherry" + i + "@gmail.com")
-                .password(" ")
-                .build();
+    @Test(groups = {"regress","negative"},dataProvider="userDTO_CSVregNegativPassword",dataProviderClass = ProviderData.class)
+    public void registrationNegativeEmptyPassword(User user) {
+//        int i = (int) (System.currentTimeMillis() / 1000) % 3600;
+//        User user =User.builder()
+//                .email("cherry" + i + "@gmail.com")
+//                .password(" ")
+//                .build();
         app.getUser().Registration(user);
         flagReturnToMainPage=true;
         Assert.assertTrue(app.getUser().isWrongFormatMessageRegistr());
@@ -89,13 +90,13 @@ public void registrationPositive()  {
 
     }
 
-    @Test
-    public void registrationNegativeEmail(){
-        int i = (int) (System.currentTimeMillis() / 1000) % 3600;
-        User user =User.builder()
-                .email("cherry" + i + "gmail.com")
-                .password("Ch12345$")
-                .build();
+    @Test(groups = {"negative","regress"},dataProvider="userDTO_CSVregNegativEmail",dataProviderClass = ProviderData.class)
+    public void registrationNegativeEmail(User user) {
+//        int i = (int) (System.currentTimeMillis() / 1000) % 3600;
+//        User user =User.builder()
+//                .email("cherry" + i + "gmail.com")
+//                .password("Ch12345$")
+//                .build();
         app.getUser().Registration(user);
         flagReturnToMainPage=true;
         Assert.assertTrue(app.getUser().isWrongFormatMessageRegistr());

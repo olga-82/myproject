@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -14,19 +15,18 @@ import org.testng.annotations.Test;
 public class AddNewContactTests extends TestBase {
     Logger logger = LoggerFactory.getLogger(AddNewContactTests.class);
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void precondition() {
+        User user = new User().withEmail("cherry@gmail.com")
+                .withPassword("Ch12345$");
         if (!app.getUser().isLogged()) {
-            app.getUser().Login(User.builder()
-                    .email("cherry@gmail.com")
-                    .password("Ch12345$")
-                    .build());
+            app.getUser().Login(user);
         }
 
-    }
+        }
 
-    @Test(invocationCount = 1)
-    public void addNewContactPositive() {
+    @Test(invocationCount = 2,groups ={"positive"} )
+    public  void addNewContactPositive() {
         int i = (int) (System.currentTimeMillis() / 1000) % 3600;
         Contact contact = Contact.builder()
                 .name("Sara_" + i)
@@ -45,6 +45,9 @@ public class AddNewContactTests extends TestBase {
 
 
     }
-
+@AfterMethod(alwaysRun = true)
+public void postcondition(){
+    app.getUser().logout();
+}
 
 }

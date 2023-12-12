@@ -1,20 +1,18 @@
 package tests;
 
+import manager.ProviderData;
 import manager.TestNgListeners;
 import model.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
 
 @Listeners(TestNgListeners.class)
 
 public class LoginTest extends TestBase {
-    @BeforeMethod
+    @AfterMethod(alwaysRun = true)
     public void precondition(Method method) {
         if (flagNeedLogout) {
             app.getUser().logout();
@@ -31,19 +29,16 @@ public class LoginTest extends TestBase {
         }
 
 
-    @Test
-    public void login() {
-        User user = User.builder()
-                .email("cherry@gmail.com")
-                .password("Ch12345$")
-                .build();
+    @Test(groups={"smoke", "positive"},dataProvider = "userDTOCSVLogin"
+            ,dataProviderClass = ProviderData.class)
+    public void login(User user) {
        app.getUser().Login(user);
        flagNeedLogout=true;
         logger.info("flagNeedLogout = " + flagNeedLogout);
         logger.info(" loginPositiveUser starts with credentials "
                 + user.getEmail() + " " + user. getPassword());
         Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")), "Login Pass");
-        ;
+
 
     }
 //        // open login form
@@ -73,12 +68,12 @@ public class LoginTest extends TestBase {
 
 
 
-    @Test
-    public void loginNegativWrongPasswordTestBase() {
-        User user = User.builder()
-                .email("cherry@gmail.com")
-                .password("Ch12345")
-                .build();
+    @Test(groups={"regress", "negative"},dataProvider="userDTO_CSVregNegativPassword",dataProviderClass = ProviderData.class)
+    public void loginNegativWrongPasswordTestBase(User user) {
+//        User user = new User()
+//                .withEmail("cherry@gmail.com")
+//                .withPassword("Ch12345");
+
         app.getUser().Login(user);
         flagReturnToMainPage=true;
         logger.info("flagNeedLogout = " + flagNeedLogout);
@@ -88,12 +83,12 @@ public class LoginTest extends TestBase {
         Assert.assertTrue(app.getUser().isAllertPresent());
     }
 
-    @Test
-    public void loginNegativWrongEmailTestBase() {
-        User user = User.builder()
-                .email("cherrygmail.com")
-                .password("Ch12345$")
-                .build();
+    @Test(groups={"regress", "negative"},dataProvider="userDTO_CSVregNegativEmail",dataProviderClass = ProviderData.class)
+    public void loginNegativWrongEmailTestBase(User user) {
+//        User user = new User()
+//                .withEmail("cherrygmail.com")
+//                .withPassword("Ch12345$");
+
         app.getUser().Login(user);
         flagReturnToMainPage=true;
        Assert.assertTrue(app.getUser().isWrongFormatMessage());

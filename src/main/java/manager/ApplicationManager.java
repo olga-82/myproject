@@ -2,6 +2,9 @@ package manager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 import org.slf4j.Logger;
@@ -19,8 +22,14 @@ public class ApplicationManager {
     EventFiringWebDriver wd;
     HelperUser user;
 
-
     HelperContact contact;
+
+    String browser;
+
+    public ApplicationManager(String browser) {
+        this.browser = browser;
+    }
+
     public HelperUser getUser() {
         return user;
     }
@@ -29,20 +38,30 @@ public class ApplicationManager {
         return contact;
     }
 
-
-    @BeforeSuite
+    @BeforeSuite(alwaysRun = true)
     public void init() {
-        wd = new EventFiringWebDriver(new ChromeDriver());
+        if(browser.equals(BrowserType.CHROME)) {
+            wd = new EventFiringWebDriver(new ChromeDriver());
+            logger.info("Test start on Chrome");
+        }else if(browser.equals(BrowserType.FIREFOX)){
+            wd = new EventFiringWebDriver(new FirefoxDriver());
+            logger.info("Test start on FireFox");
+        } else if (browser.equals(BrowserType.SAFARI)) {
+            wd=new EventFiringWebDriver(new SafariDriver());
+            logger.info("Test start on Safari");
+
+
+        }
         user = new HelperUser(wd);
         contact=new HelperContact(wd);
         wd.register(new WdListener());
       //  wd.navigate().to("https://telranedu.web.app/home");
         user.navigateToMainPage();
-        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         wd.manage().window().maximize();
     }
 
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
 
     public void tearDown() {
         wd.quit();
