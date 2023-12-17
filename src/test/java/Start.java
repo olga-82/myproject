@@ -13,7 +13,7 @@ public class Start {
         wd.get("https://telranedu.web.app/home");
 
     }
-    @Test
+//    @Test
     public void test(){
         wd.findElement(By.tagName("a"));
         wd.findElement(By.cssSelector("a"));

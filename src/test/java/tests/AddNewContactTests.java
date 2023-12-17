@@ -1,5 +1,6 @@
 package tests;
 
+import manager.HelperBase;
 import manager.TestNgListeners;
 import model.Contact;
 import model.User;
@@ -19,8 +20,8 @@ public class AddNewContactTests extends TestBase {
     public void precondition() {
         User user = new User().withEmail("cherry@gmail.com")
                 .withPassword("Ch12345$");
-        if (!app.getUser().isLogged()) {
-            app.getUser().Login(user);
+        if (!app.getContact().isLoggedContact()) {
+      app.getUser().Login(user);
         }
 
         }

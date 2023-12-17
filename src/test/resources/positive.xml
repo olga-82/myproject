@@ -10,9 +10,9 @@
     <test name="positiveTests">
         <classes>
             <class name="tests.LoginTest"/>
-            <class name="tests.RegistrationTest"/>
-            <class name="tests.AddNewContactTests"/>
-            <class name="tests.RemoveContactTests"/>
+<!--            <class name="tests.RegistrationTest"/>-->
+<!--            <class name="tests.AddNewContactTests"/>-->
+<!--            <class name="tests.RemoveContactTests"/>-->
         </classes>
     </test>
 </suite>

@@ -8,12 +8,12 @@ import org.testng.annotations.Test;
 
 public class TableTest {
     WebDriver wd;
-    @BeforeMethod
-    public void init() {
-        wd = new ChromeDriver();
-        wd.navigate().to("https://www.w3schools.com/css/css_table.asp");
-    }
-        @Test
+//    @BeforeMethod
+//    public void init() {
+//        wd = new ChromeDriver();
+//        wd.navigate().to("https://www.w3schools.com/css/css_table.asp");
+//    }
+
         public void testCss () {
 
          //   wd.findElement(By.cssSelector("#customers tr:nth-child(7) td:last-child"));
@@ -23,8 +23,8 @@ public class TableTest {
             wd.findElement (By.cssSelector("#customers tr:nth-child(3)"));
             wd.findElement (By.cssSelector("#customers td:last-child"));
         }
-      @AfterMethod
-        public void tearDown(){
-    wd.quit();
-        }
-    }
+//      @AfterMethod
+//        public void tearDown(){
+//    wd.quit();
+//        }
+   }

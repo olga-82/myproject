@@ -1,6 +1,7 @@
 package manager;
 
 import model.Contact;
+import model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -92,6 +93,13 @@ public class HelperContact extends HelperBase {
         wd.findElement(By.xpath("//button[.='Remove']")).click();
 
     }
+
+
+        public boolean isLoggedContact() {
+            return isElementPresent(By.xpath("//*[.='Sign Out']"));
+        }
+
+
     //*[@id="root"]/div[2]/div/div/div[1]/div/div[1]/h2
 
     //button[.='Remove']
