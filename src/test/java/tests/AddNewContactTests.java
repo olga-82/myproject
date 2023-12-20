@@ -18,15 +18,15 @@ public class AddNewContactTests extends TestBase {
 
     @BeforeMethod(alwaysRun = true)
     public void precondition() {
-        User user = new User().withEmail("cherry@gmail.com")
-                .withPassword("Ch12345$");
+        User user = new User().withEmail("cherry27@mail.com")
+                .withPassword("Ch12349$");
         if (!app.getContact().isLoggedContact()) {
       app.getUser().Login(user);
         }
 
         }
 
-    @Test(invocationCount = 2,groups ={"positive"} )
+    @Test(invocationCount =3,groups ={"positive"} )
     public  void addNewContactPositive() {
         int i = (int) (System.currentTimeMillis() / 1000) % 3600;
         Contact contact = Contact.builder()
